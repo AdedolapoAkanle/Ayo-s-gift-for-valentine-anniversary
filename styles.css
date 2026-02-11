@@ -644,9 +644,17 @@ body::before {
   color: white;
   font-size: 1.2rem;
   text-align: center;
-  padding: 20px;
+  padding: 0;
   position: relative;
   overflow: hidden;
+}
+
+.polaroid-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
 }
 
 .polaroid-photo::after {
@@ -1085,7 +1093,6 @@ body::before {
   max-height: 6000px;
 }
 
-/* letter text fades in slightly after scroll finishes */
 .letter-content {
   opacity: 0;
   transition: opacity 1.4s ease 1.8s;
@@ -1093,42 +1100,6 @@ body::before {
 
 .letter-section.unrolled .letter-content {
   opacity: 1;
-}
-
-.ribbon-overlay {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(900px, 90vw);
-  /* sits exactly where the letter section is */
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  pointer-events: none;
-  z-index: 20;
-  /* vertically centred on the scroll top — adjust if needed */
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* ── The full bow group ── */
-.ribbon-bow {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 260px;
-  height: 80px;
-  transition: opacity 0.5s ease;
-}
-
-/* ── Central knot emoji ── */
-.ribbon-knot {
-  font-size: 4rem;
-  z-index: 2;
-  animation: bowPulse 1.2s ease-in-out infinite;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
 }
 
 @keyframes bowPulse {
@@ -1140,60 +1111,6 @@ body::before {
     transform: scale(1.1);
   }
 }
-
-/* When loosening → knot shrinks away */
-.ribbon--loosen .ribbon-knot {
-  opacity: 0;
-  transform: scale(0.3);
-  animation: none;
-}
-
-/* ── Ribbon tails ── */
-.ribbon-tail {
-  position: absolute;
-  top: 50%;
-  width: 120px;
-  height: 18px;
-  border-radius: 9px;
-  background: linear-gradient(90deg, #c0627a 0%, #e8a0b0 40%, #c0627a 100%);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  transform-origin: center center;
-  transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
-    opacity 0.5s ease;
-}
-
-.ribbon-tail--left {
-  right: calc(50% + 10px);
-  transform: translateY(-50%) rotate(-6deg);
-}
-
-.ribbon-tail--right {
-  left: calc(50% + 10px);
-  transform: translateY(-50%) rotate(6deg);
-}
-
-/* Tails slide outward when ribbon--slide is added */
-.ribbon--slide .ribbon-tail--left {
-  transform: translateY(-50%) translateX(-220px) rotate(-20deg);
-  opacity: 0;
-}
-
-.ribbon--slide .ribbon-tail--right {
-  transform: translateY(-50%) translateX(220px) rotate(20deg);
-  opacity: 0;
-}
-
-/* Fully hidden once scroll starts */
-.ribbon--gone {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* .letter-section.unrolled {
-  transform: perspective(2000px) scaleY(1) rotateX(0deg) translateY(0);
-  opacity: 1;
-  max-height: 5000px;
-} */
 
 .letter-section::before {
   content: "";
@@ -1699,7 +1616,11 @@ body::before {
     padding: 30px 10px;
   }
 
-  .sticky-note {
+  .scrapbook-layout .music-section {
+    padding: 30px 10px;
+  }
+
+  .sticky-note::before .sticky-note {
     max-width: 90%;
     font-size: 1.5rem;
     padding: 20px;
