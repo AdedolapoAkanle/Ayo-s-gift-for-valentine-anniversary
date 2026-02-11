@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Love Story - A Cinematic Scrapbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600;700&family=Dancing+Script:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <button id="musicToggle" class="music-toggle">🎵</button>
+
+  <body>
+    <div class="hearts-container">
+      <div class="floating-heart">💕</div>
+      <div class="floating-heart">❤️</div>
+      <div class="floating-heart">💖</div>
+      <div class="floating-heart">💗</div>
+      <div class="floating-heart">💝</div>
+      <div class="floating-heart">💕</div>
+    </div>
+
+    <div class="opening-credits">
+      <div class="credits-text">
+        <div class="credits-line">A Love Story</div>
+        <div class="credits-line">Made Just For You</div>
+      </div>
+    </div>
+
+    <section class="photo-reveal" id="photoReveal">
+      <div class="reveal-content">
+        <div class="reveal-photo">
+          <div class="couple-photo-frame">
+            <div class="couple-photo">
+              <img
+                src="./img/main.jpg"
+                alt="Us"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  border-radius: 10px;
+                "
+              />
+            </div>
+            <div class="photo-frame-caption">Us - Against All Odds 💕</div>
+          </div>
+        </div>
+
+        <button class="continue-btn" id="continueBtn">
+          Continue Our Story ↓
+        </button>
+      </div>
+    </section>
+
+    <section class="scrapbook-cover" id="coverPage">
+      <div class="washi-tape top"></div>
+      <div class="washi-tape bottom"></div>
+      <div class="heart-doodle" style="top: 15%; left: 10%">💕</div>
+      <div
+        class="heart-doodle"
+        style="top: 70%; right: 15%; animation-delay: 2s"
+      >
+        ❤️
+      </div>
+      <div
+        class="heart-doodle"
+        style="bottom: 20%; left: 20%; animation-delay: 4s"
+      >
+        💖
+      </div>
+
+      <div class="cover-content">
+        <div class="cover-title">Our Story</div>
+        <div class="cover-subtitle">Miles Apart, Hearts Together</div>
+        <div class="cover-date">One Year of Love<br />February 2025</div>
+
+        <button class="turn-page-btn" id="turnPageBtn">Turn the Page 📖</button>
+      </div>
+    </section>
+
+    <div class="scrapbook-pages" id="mainPages">
+      <div class="page">
+        <div class="scrapbook-layout">
+          <h2 class="handwritten-title">Chapter 1: When Our Worlds Collided</h2>
+
+          <div class="photo-cluster">
+            <div class="polaroid">
+              <div class="polaroid-photo">
+                <img
+                  src="/img/IMG_76BA574D5978-1.JPEG"
+                  alt="When we met"
+                  style="
+                    width: 350px;
+                    height: 350px;
+                    object-fit: contain;
+                    border-radius: 5px;
+                  "
+                />
+              </div>
+              <div class="polaroid-caption">The beginning of forever</div>
+            </div>
+          </div>
+
+          <div class="sticky-note yellow">
+            Remember that first conversation? I never imagined a simple hello
+            would change my entire life. You made me laugh, you made me think,
+            and from that moment, I couldn't stop thinking about you.
+          </div>
+
+          <div
+            class="sticky-note pink"
+            style="
+              margin-left: auto;
+              margin-right: 100px;
+              transform: rotate(-3deg);
+            "
+          >
+            You were different. You ARE different. Special in ways I didn't even
+            know I was looking for. 💕
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-ribbon">
+        ✈️ 5,683 Miles Between Lagos & the US ✈️
+      </div>
+
+      <div class="page">
+        <div class="scrapbook-layout">
+          <h2 class="handwritten-title">Chapter 2: Falling For You</h2>
+
+          <div class="photo-cluster">
+            <div class="polaroid" style="transform: rotate(4deg)">
+              <div class="polaroid-photo">
+                <img
+                  src="/img/IMG_76BA574D5978-1.JPEG"
+                  alt="Special moment"
+                  style="
+                    width: 350px;
+                    height: 350px;
+                    object-fit: cover;
+                    border-radius: 5px;
+                  "
+                />
+              </div>
+              <div class="polaroid-caption">You make my heart smile</div>
+            </div>
+
+            <div class="polaroid" style="transform: rotate(-3deg)">
+              <div class="polaroid-photo">
+                <img
+                  src="/img/heart.JPG"
+                  alt="Another memory"
+                  style="
+                    width: 350px;
+                    height: 350px;
+                    object-fit: cover;
+                    border-radius: 5px;
+                  "
+                />
+              </div>
+              <div class="polaroid-caption">Every moment with you</div>
+            </div>
+          </div>
+
+          <div class="sticky-note blue">
+            The first time you said "I love you"... I felt it before you even
+            said the words. Your love wrapped around me like the warmest
+            embrace, even through a screen thousands of miles away. Distance
+            became meaningless in that moment.
+          </div>
+
+          <div class="stamp" style="top: 50px; right: 100px">❤️</div>
+        </div>
+      </div>
+
+      <div class="timeline-ribbon">
+        💻 The Moment I Knew You Were Special 💻
+      </div>
+
+      <div class="page">
+        <div class="scrapbook-layout">
+          <h2 class="handwritten-title">When You Showed Up For Me</h2>
+
+          <div
+            class="sticky-note blue"
+            style="max-width: 650px; margin: 40px auto"
+          >
+            Remember when we were just getting to know each other and I needed
+            help installing that software on my laptop? I was probably stressing
+            about it, and you just... stepped in. No hesitation. You walked me
+            through it so patiently, explained everything, made sure it worked
+            perfectly.
+            <br /><br />
+            That's when I knew you were different. You were willing to help,
+            even when we barely knew each other. You cared. And that meant
+            everything. 💻💕
+          </div>
+
+          <div class="photo-cluster">
+            <div class="polaroid">
+              <div class="polaroid-photo">
+                <img
+                  src="/img/IMG_2743.JPG"
+                  alt="My tech hero"
+                  style="
+                    width: 350px;
+                    height: 350px;
+                    object-fit: cover;
+                    border-radius: 5px;
+                  "
+                />
+              </div>
+              <div class="polaroid-caption">My nerdy hero 🤓</div>
+            </div>
+          </div>
+
+          <div class="sticky-note yellow" style="transform: rotate(1deg)">
+            That moment taught me something: you show up for people. You don't
+            just talk about caring - you prove it through action. That's the
+            kind of man you are. ✨
+          </div>
+        </div>
+      </div>
+
+      <div class="page">
+        <div class="scrapbook-layout">
+          <h2 class="handwritten-title">Chapter 3: The Man You Are</h2>
+
+          <div class="photo-cluster">
+            <div class="polaroid">
+              <div class="polaroid-photo">
+                <img
+                  src="/img/work.jpg"
+                  alt="My hardworking man"
+                  style="
+                    width: 350px;
+                    height: 350px;
+                    object-fit: cover;
+                    border-radius: 5px;
+                  "
+                />
+              </div>
+              <div class="polaroid-caption">Watching you chase your dreams</div>
+            </div>
+
+            <div class="polaroid">
+              <div class="polaroid-photo">
+                <img
+                  src="/img/workout.jpg"
+                  alt="Mr. Muscles"
+                  style="
+                    width: 350px;
+                    height: 350px;
+                    object-fit: cover;
+                    border-radius: 5px;
+                  "
+                />
+              </div>
+              <div class="polaroid-caption">Looking good, baby 😉</div>
+            </div>
+          </div>
+
+          <div class="sticky-note green">
+            Your dedication amazes me. Construction engineering, football,
+            running, growth & marketing management, diving into Web3 and crypto
+            - you pour your whole heart into everything. But what I love most?
+            You don't play about the people you care about. Including me. That
+            dedication, that loyalty... it's everything.
+          </div>
+
+          <div
+            class="sticky-note yellow"
+            style="transform: rotate(2deg); max-width: 500px"
+          >
+            Even with ADHD making it hard to focus, you ALWAYS find a way to be
+            present with me. You remember the little things I say. You check on
+            me. You make me feel like I'm the only person in the world. That's
+            real love, baby. 💪
+          </div>
+
+          <div
+            class="sticky-note pink"
+            style="transform: rotate(-1deg); max-width: 520px"
+          >
+            And can we talk about how NERDY you are? 🤓 I love how your eyes
+            light up when you talk about Web3, crypto, marketing strategies...
+            You're not just smart, you're passionate about learning and growing.
+            That's so attractive.
+          </div>
+
+          <div
+            class="stamp"
+            style="bottom: 100px; left: 80px; transform: rotate(-12deg)"
+          >
+            ⚽
+          </div>
+
+          <div
+            class="stamp"
+            style="top: 120px; right: 60px; transform: rotate(8deg)"
+          >
+            🚀
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-ribbon">🎵 Our Soundtrack 🎵</div>
+
+      <div class="page">
+        <div class="scrapbook-layout">
+          <h2 class="handwritten-title">Chapter 4: Our Drives & Music</h2>
+
+          <div
+            class="sticky-note pink"
+            style="
+              max-width: 650px;
+              margin: 40px auto;
+              transform: rotate(-1deg);
+            "
+          >
+            Back when you were still in Nigeria, before you traveled... Those
+            drives together were everything. Just us, the music, the
+            conversation, the vibe. And those runs! You made me start running
+            with you because my lazy ass needed motivation (and honestly, I just
+            wanted to do everything with you). I miss those moments. But we'll
+            have them again. Real drives. Real runs. Together. Soon. 🚗🏃‍♀️💕
+          </div>
+
+          <div class="music-section">
+            <div class="music-note">🎵</div>
+            <div class="music-note">🎶</div>
+            <div class="music-note">🎵</div>
+
+            <p class="music-section-title">Our Soundtrack 🎵</p>
+
+            <p class="music-section-subtitle">
+              Your love for music is contagious. Amapiano vibes, Asa's soulful
+              voice, Wizkid's hits, The Cavemen's unique sound... You introduced
+              me to so much good music. 🎶
+            </p>
+
+            <div class="playlist-item">
+              <iframe
+                data-testid="embed-iframe"
+                style="border-radius: 12px"
+                src="https://open.spotify.com/embed/track/0Cz01oPE52pFb7D2NVgt3n?utm_source=generator"
+                width="100%"
+                height="100"
+                frameborder="0"
+                allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              ></iframe>
+              <p class="playlist-title">🎵 Your Favorite anthem</p>
+            </div>
+            <div class="playlist-item">
+              <iframe
+                data-testid="embed-iframe"
+                style="border-radius: 12px"
+                src="https://open.spotify.com/embed/track/3SdTKo2uVsxFblQjpScoHy?utm_source=generator"
+                width="100%"
+                height="100"
+                frameborder="0"
+                allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              ></iframe>
+              <p class="playlist-title">🎵 A song that reminds me of us</p>
+            </div>
+            <div class="playlist-item">
+              <iframe
+                data-testid="embed-iframe"
+                style="border-radius: 12px"
+                src="https://open.spotify.com/embed/track/3pbuapqwAKZyl5ChQP6uvz?utm_source=generator"
+                width="100%"
+                height="100"
+                frameborder="0"
+                allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              ></iframe>
+              <p class="playlist-title">
+                🎵 I miss watching you go crazy over Don Jazzy's instumentals on
+                this track
+              </p>
+            </div>
+            <div class="playlist-item">
+              <iframe
+                data-testid="embed-iframe"
+                style="border-radius: 12px"
+                src="https://open.spotify.com/embed/track/2m8knT0EYaPGJzi3s9m4f9?utm_source=generator"
+                width="100%"
+                height="100"
+                frameborder="0"
+                allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              ></iframe>
+              <p class="playlist-title">
+                🎵 Just two artists you love on the same track 🤗
+              </p>
+            </div>
+            <div class="playlist-item">
+              <iframe
+                width="100%"
+                height="100"
+                src="https://www.youtube.com/embed/iKeTkdb9fhY"
+                title="Ayo by Ife (lyric video)"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+              <p class="playlist-title">
+                🎵 Song Title 5 - Our special song ❤️
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="sticky-note green"
+            style="transform: rotate(2deg); max-width: 600px"
+          >
+            And let's not forget your podcasts! 😂 "Foolish Idiots" and "I Said
+            What I Said" - you're always listening to something. I love how
+            you're always learning, always curious, always growing. That's so
+            YOU. 🎧
+          </div>
+
+          <div class="sticky-note yellow">
+            Can't wait for the day we're actually driving together again, your
+            hand in mine, our playlist on repeat, going nowhere and everywhere
+            at the same time. That's the dream. 🌅
+          </div>
+        </div>
+      </div>
+
+      <div class="page">
+        <div class="scrapbook-layout">
+          <h2 class="handwritten-title">Chapter 5: Why You're So Special</h2>
+
+          <div class="photo-cluster">
+            <div class="polaroid" style="transform: rotate(-4deg)">
+              <div class="polaroid-photo">
+                <img
+                  src="/img/words.PNG"
+                  alt="Sweet messages"
+                  style="
+                    width: 350px;
+                    height: 350px;
+                    object-fit: cover;
+                    border-radius: 5px;
+                  "
+                />
+              </div>
+              <div class="polaroid-caption">You always know what to say</div>
+            </div>
+
+            <div class="polaroid" style="transform: rotate(2deg)">
+              <div class="polaroid-photo">
+                <img
+                  src="/img/christmas.MOV"
+                  alt="Thoughtful you"
+                  style="
+                    width: 350px;
+                    height: 350px;
+                    object-fit: cover;
+                    border-radius: 5px;
+                  "
+                />
+              </div>
+              <div class="polaroid-caption">My sweet, thoughtful man</div>
+            </div>
+          </div>
+
+          <div class="sticky-note blue">
+            It's the little things that make me fall deeper every day:
+            <br />• How you check on me <br />• The way you remember what I said
+            weeks ago <br />• Your good morning texts <br />• How you make me
+            laugh when I'm down <br />• The way you LISTEN - really listen
+          </div>
+
+          <div
+            class="sticky-note yellow"
+            style="margin-left: auto; margin-right: 50px"
+          >
+            You make me feel seen. Heard. Valued. Loved in ways I never knew I
+            could be loved. Thank you for being YOU. 💕
+          </div>
+        </div>
+      </div>
+
+      <div class="page">
+        <div class="scrapbook-layout">
+          <h2 class="handwritten-title">Chapter 6: Just Us</h2>
+
+          <div class="photo-cluster">
+            <div class="polaroid">
+              <div class="polaroid-photo">
+                <img
+                  src="/img/IMG_2425.JPG"
+                  alt="Just us"
+                  style="
+                    width: 350px;
+                    height: 350px;
+                    object-fit: cover;
+                    border-radius: 5px;
+                  "
+                />
+              </div>
+              <div class="polaroid-caption">Staying in is our favorite</div>
+            </div>
+          </div>
+
+          <div
+            class="sticky-note pink"
+            style="max-width: 600px; margin: 40px auto"
+          >
+            There's nothing I love more than our quiet moments. Just you and me,
+            shutting out the world. Talking, laughing, being vulnerable, showing
+            each other love in every way. You make me feel safe. Cherished.
+            Completely yours.
+            <br /><br />
+            Those are the moments I treasure most. When it's just us, no
+            distance, no screens - just our hearts beating as one. 💖
+          </div>
+
+          <div class="sticky-note green" style="transform: rotate(-2deg)">
+            Inside joke alert: [Add your funniest inside joke here - the one
+            that makes you both crack up!] 😂
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-ribbon">✨ Looking Forward ✨</div>
+
+      <div class="dream-section">
+        <h2
+          class="handwritten-title"
+          style="color: var(--vintage-cream); font-size: 5rem"
+        >
+          Our Future Together
+        </h2>
+        <p
+          style="
+            font-size: 1.8rem;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            line-height: 2;
+          "
+        >
+          Distance is just a chapter in our story. Our forever is the whole
+          book.
+        </p>
+
+        <div class="dream-cards">
+          <div class="dream-card">
+            <div class="dream-icon">🏠</div>
+            <h3>Closing the Distance</h3>
+            <p>
+              The day we finally share the same zip code. Waking up next to you.
+              Coming home to you. Building our life together, one day at a time.
+            </p>
+          </div>
+
+          <div class="dream-card">
+            <div class="dream-icon">🚗</div>
+            <h3>Real Drives</h3>
+            <p>
+              Actually cruising together - your hand in mine, our playlist
+              blasting, going on adventures. No more virtual drives. The real
+              thing.
+            </p>
+          </div>
+
+          <div class="dream-card">
+            <div class="dream-icon">✈️</div>
+            <h3>Adventures</h3>
+            <p>
+              Exploring the world together. Nigeria, the US, and everywhere in
+              between. Making memories we can hold in our hands, not just our
+              hearts.
+            </p>
+          </div>
+
+          <div class="dream-card">
+            <div class="dream-icon">💍</div>
+            <h3>Forever & Always</h3>
+            <p>
+              Building the life we talk about. The home, the love, the family.
+              You and me, against the world, for the rest of our lives.
+            </p>
+          </div>
+
+          <div class="dream-card">
+            <div class="dream-icon">🎓</div>
+            <h3>Watching You Win</h3>
+            <p>
+              Being there for every milestone. Your graduation, your career,
+              your dreams coming true. Cheering you on every step of the way.
+            </p>
+          </div>
+
+          <div class="dream-card">
+            <div class="dream-icon">❤️</div>
+            <h3>Growing Old Together</h3>
+            <p>
+              Years from now, looking back at this scrapbook, laughing about our
+              long-distance days, grateful we never gave up on us.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="page">
+        <div class="letter-section">
+          <div class="stamp" style="top: 30px; right: 30px">💕</div>
+
+          <div class="letter-content">
+            <p>My Love,</p>
+
+            <p>
+              One year. 365 days. Thousands of texts. Hundreds of calls.
+              Countless "I miss yous" and "I love yous". And somehow, it feels
+              like both forever and just the beginning.
+            </p>
+
+            <p>
+              You are my best friend, my safe place, my home - even from 5,683
+              miles away. Thank you for loving me the way you do. For being
+              patient with the distance. For making me feel like the most
+              special person in the world, even when we're oceans apart.
+            </p>
+
+            <p>
+              I watch you work hard in school - construction engineering, growth
+              & marketing management, diving deep into Web3 and crypto. I see
+              you give your all on the football field, push yourself while
+              running (and pushing me to run with you!). You don't just dream -
+              you DO. And you never forget about the people you love along the
+              way. That's what makes you extraordinary.
+            </p>
+
+            <p>
+              I love how sweet you are. How thoughtful. How nerdy (in the best
+              way 🤓). How you get lost in books, podcasts, new ideas. How you
+              remember every little thing. How even with ADHD making focus hard,
+              you always find a way to make me feel prioritized. Those
+              late-night talks, our drives back when you were still here, our
+              runs together, staying in, listening to Amapiano, Asa, Wizkid, The
+              Cavemen - those moments mean everything to me.
+            </p>
+
+            <p>
+              From that day you helped me install software on my laptop when we
+              were just getting to know each other, to now - you've always shown
+              up for me. You prove your love through action, not just words.
+            </p>
+
+            <p>
+              This website is my way of saying: I see you. I appreciate you. I
+              love you more than words in a message could ever express. You make
+              distance bearable. You make love feel easy. You make me believe in
+              us every single day.
+            </p>
+
+            <p>
+              Here's to one year down and forever to go. To being in the same
+              city again. To real drives with you (not just memories of when you
+              were here). To running together again. To "I miss you" turning
+              into "I'm home". To building the life we dream about.
+            </p>
+
+            <p>Happy Anniversary, baby. You are my greatest adventure.</p>
+
+            <div class="signature">
+              All my love, always,<br />
+              Adedolapo 💕
+            </div>
+
+            <div class="ps-note">
+              P.S. - You know how you're always tapping your screen a million
+              times on TikTok? And how you love to doodle when we're on
+              FaceTime? I made sure this website has a little surprise for you -
+              tap anywhere and see what happens. It's just like your tapping
+              habit, but now it's ours. Every tap is a heart, just for you. 💕
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <audio id="bgMusic" loop>
+      <source src="./music/love.mp3" type="audio/mpeg" />
+    </audio>
+    <script src="./index.js"></script>
+  </body>
+</html>

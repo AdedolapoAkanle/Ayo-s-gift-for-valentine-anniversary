@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Journey Together</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Vollkorn:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --sunset-peach: #ffb4a2;
+        --warm-rose: #e5989b;
+        --deep-rose: #b5838d;
+        --midnight-blue: #6d6875;
+        --cream: #fff8f0;
+        --soft-shadow: rgba(181, 131, 141, 0.15);
+      }
+
+      body {
+        font-family: "Crimson Pro", serif;
+        background: linear-gradient(135deg, var(--cream) 0%, #ffeee8 100%);
+        color: var(--midnight-blue);
+        overflow-x: hidden;
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="8" fill="%23E5989B" opacity="0.5"/></svg>')
+            10 10,
+          auto;
+      }
+
+      .intro-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(
+          135deg,
+          var(--warm-rose) 0%,
+          var(--deep-rose) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        animation: fadeOut 1s ease-in-out 3s forwards;
+      }
+
+      .intro-content {
+        text-align: center;
+        color: var(--cream);
+        animation: scaleIn 1.5s ease-out;
+      }
+
+      .intro-content h1 {
+        font-family: "Vollkorn", serif;
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .intro-content p {
+        font-size: 1.5rem;
+        font-weight: 300;
+        opacity: 0.95;
+      }
+
+      @keyframes fadeOut {
+        to {
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+
+      @keyframes scaleIn {
+        from {
+          transform: scale(0.9);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at 20% 50%,
+            var(--sunset-peach) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            var(--warm-rose) 0%,
+            transparent 50%
+          );
+        opacity: 0.3;
+        animation: float 20s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        50% {
+          transform: translate(-20px, -20px) scale(1.1);
+        }
+      }
+
+      .hero-content {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        animation: fadeInUp 1s ease-out 3.5s backwards;
+      }
+
+      .hero h1 {
+        font-family: "Vollkorn", serif;
+        font-size: 5rem;
+        font-weight: 700;
+        color: var(--deep-rose);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 1.8rem;
+        color: var(--midnight-blue);
+        margin-bottom: 3rem;
+        font-weight: 300;
+      }
+
+      .distance-line {
+        width: 200px;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          var(--warm-rose),
+          var(--sunset-peach)
+        );
+        margin: 2rem auto;
+        position: relative;
+      }
+
+      .distance-line::before,
+      .distance-line::after {
+        content: "";
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--warm-rose);
+        top: -5px;
+      }
+
+      .distance-line::before {
+        left: 0;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      .distance-line::after {
+        right: 0;
+        animation: pulse 2s ease-in-out infinite 1s;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 var(--warm-rose);
+        }
+        50% {
+          transform: scale(1.2);
+          box-shadow: 0 0 0 10px transparent;
+        }
+      }
+
+      .scroll-indicator {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounce 2s infinite;
+      }
+
+      .scroll-indicator p {
+        font-size: 1rem;
+        color: var(--deep-rose);
+        margin-bottom: 10px;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        40% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+        60% {
+          transform: translateX(-50%) translateY(-5px);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .road-container {
+        position: relative;
+        min-height: 300vh;
+        padding: 100px 0;
+      }
+
+      .road {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(
+          180deg,
+          var(--warm-rose) 0%,
+          var(--sunset-peach) 50%,
+          var(--warm-rose) 100%
+        );
+        transform: translateX(-50%);
+      }
+
+      .road::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background: repeating-linear-gradient(
+          to bottom,
+          var(--cream) 0px,
+          var(--cream) 30px,
+          transparent 30px,
+          transparent 60px
+        );
+        transform: translateX(-50%);
+      }
+
+      .milestone {
+        position: relative;
+        margin: 150px auto;
+        max-width: 900px;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .milestone.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .milestone:nth-child(odd) .milestone-content {
+        margin-left: 0;
+        margin-right: auto;
+        padding-right: 80px;
+      }
+
+      .milestone:nth-child(even) .milestone-content {
+        margin-right: 0;
+        margin-left: auto;
+        padding-left: 80px;
+      }
+
+      .milestone-marker {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--sunset-peach),
+          var(--warm-rose)
+        );
+        box-shadow: 0 0 0 8px var(--cream), 0 0 20px var(--soft-shadow);
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+      }
+
+      .milestone-content {
+        background: white;
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 20px 60px var(--soft-shadow);
+        width: 50%;
+        position: relative;
+        transition: transform 0.3s ease;
+      }
+
+      .milestone-content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 25px 70px var(--soft-shadow);
+      }
+
+      .milestone-content::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 30px;
+        height: 2px;
+        background: var(--warm-rose);
+      }
+
+      .milestone:nth-child(odd) .milestone-content::before {
+        right: -30px;
+        transform: translateY(-50%);
+      }
+
+      .milestone:nth-child(even) .milestone-content::before {
+        left: -30px;
+        transform: translateY(-50%);
+      }
+
+      .milestone-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .milestone h2 {
+        font-family: "Vollkorn", serif;
+        font-size: 2.5rem;
+        color: var(--deep-rose);
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .milestone-date {
+        font-size: 1rem;
+        color: var(--warm-rose);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+      }
+
+      .milestone p {
+        font-size: 1.3rem;
+        line-height: 1.8;
+        color: var(--midnight-blue);
+        margin-bottom: 1.5rem;
+      }
+
+      .milestone-media {
+        margin-top: 2rem;
+        border-radius: 15px;
+        overflow: hidden;
+        background: var(--cream);
+        padding: 30px;
+        text-align: center;
+      }
+
+      .media-placeholder {
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(
+          135deg,
+          var(--sunset-peach),
+          var(--warm-rose)
+        );
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      .upload-btn {
+        background: var(--warm-rose);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-family: "Crimson Pro", serif;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .upload-btn:hover {
+        background: var(--deep-rose);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px var(--soft-shadow);
+      }
+
+      .playlist-section {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        margin-top: 2rem;
+      }
+
+      .playlist-section h3 {
+        font-family: "Vollkorn", serif;
+        color: var(--deep-rose);
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+      }
+
+      .song-item {
+        padding: 15px;
+        background: var(--cream);
+        border-radius: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        transition: transform 0.3s ease;
+      }
+
+      .song-item:hover {
+        transform: translateX(5px);
+      }
+
+      .song-icon {
+        font-size: 1.5rem;
+      }
+
+      .song-info {
+        flex: 1;
+      }
+
+      .song-title {
+        font-weight: 600;
+        color: var(--midnight-blue);
+        margin-bottom: 3px;
+      }
+
+      .song-artist {
+        font-size: 0.9rem;
+        color: var(--warm-rose);
+      }
+
+      .future-dreams {
+        background: linear-gradient(
+          135deg,
+          var(--warm-rose) 0%,
+          var(--deep-rose) 100%
+        );
+        color: white;
+        padding: 100px 50px;
+        text-align: center;
+        margin-top: 150px;
+      }
+
+      .future-dreams h2 {
+        font-family: "Vollkorn", serif;
+        font-size: 4rem;
+        margin-bottom: 2rem;
+        font-weight: 700;
+      }
+
+      .future-dreams p {
+        font-size: 1.5rem;
+        max-width: 800px;
+        margin: 0 auto 3rem;
+        line-height: 1.8;
+      }
+
+      .dreams-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .dream-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 40px 30px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .dream-card:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .dream-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .dream-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .final-message {
+        background: var(--cream);
+        padding: 150px 50px;
+        text-align: center;
+      }
+
+      .final-message h2 {
+        font-family: "Vollkorn", serif;
+        font-size: 4rem;
+        color: var(--deep-rose);
+        margin-bottom: 2rem;
+        font-weight: 700;
+      }
+
+      .final-message p {
+        font-size: 1.8rem;
+        color: var(--midnight-blue);
+        max-width: 900px;
+        margin: 0 auto 3rem;
+        line-height: 2;
+      }
+
+      .love-signature {
+        font-family: "Vollkorn", serif;
+        font-size: 2.5rem;
+        color: var(--warm-rose);
+        font-style: italic;
+        margin-top: 3rem;
+      }
+
+      .hearts-animation {
+        position: fixed;
+        pointer-events: none;
+        z-index: 9999;
+        font-size: 2rem;
+        animation: floatUp 4s ease-in forwards;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-200px) rotate(20deg);
+          opacity: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 3rem;
+        }
+        .hero p {
+          font-size: 1.3rem;
+        }
+
+        .milestone-content {
+          width: 90% !important;
+          padding: 30px !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+
+        .milestone:nth-child(odd) .milestone-content,
+        .milestone:nth-child(even) .milestone-content {
+          padding-left: 30px !important;
+          padding-right: 30px !important;
+        }
+
+        .milestone-content::before {
+          display: none;
+        }
+
+        .milestone h2 {
+          font-size: 2rem;
+        }
+        .future-dreams h2 {
+          font-size: 2.5rem;
+        }
+        .final-message h2 {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Intro Screen -->
+    <div class="intro-screen">
+      <div class="intro-content">
+        <h1>For My Love</h1>
+        <p>A journey of us</p>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Miles Between Us,<br />Moments Together</h1>
+        <div class="distance-line"></div>
+        <p>Lagos ✈️ United States</p>
+        <p style="font-size: 1.2rem; margin-top: 2rem">
+          One year of love across 5,683 miles
+        </p>
+      </div>
+      <div class="scroll-indicator">
+        <p>Start Our Journey</p>
+        <div style="font-size: 2rem; animation: bounce 2s infinite">↓</div>
+      </div>
+    </section>
+
+    <!-- Road Journey -->
+    <section class="road-container">
+      <div class="road"></div>
+
+      <!-- Milestone 1: How We Met -->
+      <div class="milestone">
+        <div class="milestone-marker">💫</div>
+        <div class="milestone-content">
+          <div class="milestone-icon">🌟</div>
+          <div class="milestone-date">The Beginning</div>
+          <h2>When Our Paths Crossed</h2>
+          <p>
+            They say the best love stories start unexpectedly. Ours began with a
+            simple hello that turned into endless conversations, late-night
+            talks, and the realization that distance means nothing when someone
+            means everything.
+          </p>
+          <div class="milestone-media">
+            <div class="media-placeholder">
+              📸 Add your favorite photo of when you first met or started
+              talking
+            </div>
+            <button class="upload-btn">Upload Photo/Video</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestone 2: First "I Love You" -->
+      <div class="milestone">
+        <div class="milestone-marker">💕</div>
+        <div class="milestone-content">
+          <div class="milestone-icon">💗</div>
+          <div class="milestone-date">A Moment I'll Never Forget</div>
+          <h2>Three Words That Changed Everything</h2>
+          <p>
+            The first time you said "I love you" - my heart knew it was home.
+            Your voice, even through a screen thousands of miles away, made me
+            feel closer to you than I've ever felt to anyone.
+          </p>
+          <div class="milestone-media">
+            <div class="media-placeholder">
+              🎤 Record a voice message about this moment or add a screenshot
+            </div>
+            <button class="upload-btn">Upload Memory</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestone 3: Our Drives Together -->
+      <div class="milestone">
+        <div class="milestone-marker">🚗</div>
+        <div class="milestone-content">
+          <div class="milestone-icon">🎵</div>
+          <div class="milestone-date">Our Favorite Thing</div>
+          <h2>Music, Drives & Us</h2>
+          <p>
+            Even though we can't physically drive together yet, we've created
+            our own world. Listening to the same music, talking for hours, and
+            imagining the day we'll actually cruise together - windows down, our
+            favorite songs playing, your hand in mine.
+          </p>
+
+          <div class="playlist-section">
+            <h3>Our Soundtrack 🎶</h3>
+            <div class="song-item">
+              <div class="song-icon">🎵</div>
+              <div class="song-info">
+                <div class="song-title">Song Title 1</div>
+                <div class="song-artist">Add your favorite song together</div>
+              </div>
+            </div>
+            <div class="song-item">
+              <div class="song-icon">🎵</div>
+              <div class="song-info">
+                <div class="song-title">Song Title 2</div>
+                <div class="song-artist">The one that reminds you of him</div>
+              </div>
+            </div>
+            <div class="song-item">
+              <div class="song-icon">🎵</div>
+              <div class="song-info">
+                <div class="song-title">Song Title 3</div>
+                <div class="song-artist">Your special song</div>
+              </div>
+            </div>
+            <button class="upload-btn" style="margin-top: 15px">
+              Add More Songs
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestone 4: His Dedication -->
+      <div class="milestone">
+        <div class="milestone-marker">💪</div>
+        <div class="milestone-content">
+          <div class="milestone-icon">🏗️</div>
+          <div class="milestone-date">The Man You Are</div>
+          <h2>Your Drive & Dedication</h2>
+          <p>
+            Watching you pursue your dreams in construction, balancing school,
+            football, running, and still making time for us - it shows me the
+            kind of man you are. Hardworking, passionate, and committed to
+            everything you care about. Including me. And that makes me love you
+            even more.
+          </p>
+          <div class="milestone-media">
+            <div class="media-placeholder">
+              📸 Add a photo of him doing what he loves - playing football,
+              studying, or just being him
+            </div>
+            <button class="upload-btn">Upload Photo</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestone 5: The Little Things -->
+      <div class="milestone">
+        <div class="milestone-marker">✨</div>
+        <div class="milestone-content">
+          <div class="milestone-icon">🌹</div>
+          <div class="milestone-date">What Makes You Special</div>
+          <h2>The Sweet & Thoughtful You</h2>
+          <p>
+            It's the little things - the way you check on me, the sweet messages
+            that make my day, how you remember the smallest details about what I
+            said weeks ago. You make me feel seen, heard, and so incredibly
+            loved. Even with ADHD making it hard to focus, you always find a way
+            to be present with me.
+          </p>
+          <div class="milestone-media">
+            <div class="media-placeholder">
+              💌 Add screenshots of your favorite conversations or a voice note
+              explaining why he's special
+            </div>
+            <button class="upload-btn">Upload Memory</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestone 6: Inside Jokes -->
+      <div class="milestone">
+        <div class="milestone-marker">😂</div>
+        <div class="milestone-content">
+          <div class="milestone-icon">🤣</div>
+          <div class="milestone-date">Only We Understand</div>
+          <h2>Our Inside Jokes</h2>
+          <p>
+            Remember when [add your inside joke here]? Or that time we [another
+            memory]? These are the moments that make us, us. The silly things
+            that no one else would understand, but make us laugh until we cry.
+          </p>
+          <div
+            style="
+              background: var(--cream);
+              padding: 20px;
+              border-radius: 10px;
+              margin-top: 20px;
+            "
+          >
+            <p style="font-style: italic; color: var(--warm-rose)">
+              "Add your favorite inside joke or funny memory here that will make
+              him smile"
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestone 7: Staying In Together -->
+      <div class="milestone">
+        <div class="milestone-marker">🏠</div>
+        <div class="milestone-content">
+          <div class="milestone-icon">❤️</div>
+          <div class="milestone-date">Our Favorite Place</div>
+          <h2>Staying In Together</h2>
+          <p>
+            There's nothing I love more than our quiet moments - just you and
+            me, shutting out the world. Those nights we spend together, talking,
+            laughing, being vulnerable, and showing each other love in every
+            way. You make me feel safe, cherished, and completely yours.
+          </p>
+          <div class="milestone-media">
+            <div class="media-placeholder">
+              💝 Add a photo or write a special message about these intimate
+              moments
+            </div>
+            <button class="upload-btn">Upload Memory</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Future Dreams Section -->
+    <section class="future-dreams">
+      <h2>The Road Ahead</h2>
+      <p>
+        Distance is temporary. Our love is forever. Here's to the future we're
+        building together...
+      </p>
+
+      <div class="dreams-grid">
+        <div class="dream-card">
+          <div class="dream-icon">🏠</div>
+          <h3>Our Home</h3>
+          <p>
+            The day we finally close the distance and build our life together
+          </p>
+        </div>
+        <div class="dream-card">
+          <div class="dream-icon">✈️</div>
+          <h3>Adventures</h3>
+          <p>
+            Traveling the world, making memories in person, not just through
+            screens
+          </p>
+        </div>
+        <div class="dream-card">
+          <div class="dream-icon">🚗</div>
+          <h3>Real Drives</h3>
+          <p>
+            Finally taking those drives together, your hand in mine, our
+            playlist on repeat
+          </p>
+        </div>
+        <div class="dream-card">
+          <div class="dream-icon">💍</div>
+          <h3>Forever</h3>
+          <p>Building the future we talk about - together, always</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Message -->
+    <section class="final-message">
+      <h2>To The Love of My Life</h2>
+      <p>
+        Baby, one year down, forever to go. You are my best friend, my safe
+        place, my home - even from 5,683 miles away. Thank you for loving me the
+        way you do, for being patient with the distance, for making me feel like
+        the most special person in the world. I am so incredibly proud of you,
+        so deeply in love with you, and so excited for every single moment our
+        future holds.
+      </p>
+      <p style="margin-top: 2rem">
+        Happy Anniversary, my love. Here's to us - to late-night calls, virtual
+        drives, building our dreams, and the day we finally get to hold each
+        other without saying goodbye.
+      </p>
+      <div class="love-signature">
+        Forever Yours,<br />
+        [Your Name] 💕
+      </div>
+    </section>
+
+    <script>
+      // Intersection Observer for milestone animations
+      const milestones = document.querySelectorAll(".milestone");
+
+      const observerOptions = {
+        threshold: 0.2,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      milestones.forEach((milestone) => {
+        observer.observe(milestone);
+      });
+
+      // Hearts animation on click
+      document.addEventListener("click", (e) => {
+        const heart = document.createElement("div");
+        heart.className = "hearts-animation";
+        heart.textContent = "💕";
+        heart.style.left = e.clientX + "px";
+        heart.style.top = e.clientY + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 4000);
+      });
+
+      // Smooth scroll for scroll indicator
+      document
+        .querySelector(".scroll-indicator")
+        .addEventListener("click", () => {
+          document.querySelector(".road-container").scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+
+      // Upload button functionality (placeholder)
+      document.querySelectorAll(".upload-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          alert(
+            "To add your photos, videos, and voice messages:\n\n1. Replace the placeholder text with your actual content\n2. You can upload images by replacing the .media-placeholder divs with <img> tags\n3. For videos, use <video> tags\n4. For voice messages, use <audio> tags\n\nI can help you add these once you have your media files ready!"
+          );
+        });
+      });
+    </script>
+  </body>
+</html>

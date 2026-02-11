@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Love Story - A Scrapbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600;700&family=Dancing+Script:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --vintage-cream: #f5e6d3;
+        --sepia-brown: #8b7355;
+        --rose-pink: #d4a5a5;
+        --deep-burgundy: #6b4e4e;
+        --soft-yellow: #fff8dc;
+        --tape-color: #e8dcc4;
+        --ink-black: #2c2416;
+      }
+
+      body {
+        font-family: "Cormorant Garamond", serif;
+        background: var(--vintage-cream);
+        color: var(--ink-black);
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      /* Film grain overlay */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.03) 2px,
+            rgba(0, 0, 0, 0.03) 4px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.03) 2px,
+            rgba(0, 0, 0, 0.03) 4px
+          );
+        pointer-events: none;
+        opacity: 0.3;
+        z-index: 9999;
+      }
+
+      /* Opening credits */
+      .opening-credits {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        animation: fadeToScrapbook 2s ease-in-out 5s forwards;
+      }
+
+      .credits-text {
+        text-align: center;
+        color: var(--vintage-cream);
+      }
+
+      .credits-line {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.5rem;
+        opacity: 0;
+        margin: 2rem 0;
+      }
+
+      .credits-line:nth-child(1) {
+        animation: fadeInOut 3s ease-in-out 0s;
+      }
+
+      .credits-line:nth-child(2) {
+        animation: fadeInOut 3s ease-in-out 3s;
+        font-family: "Dancing Script", cursive;
+        font-size: 4rem;
+      }
+
+      @keyframes fadeInOut {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        20% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        80% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+      }
+
+      @keyframes fadeToScrapbook {
+        to {
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+
+      /* Hero scrapbook cover */
+      .scrapbook-cover {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+          135deg,
+          var(--sepia-brown) 0%,
+          var(--deep-burgundy) 100%
+        );
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        animation: fadeIn 1.5s ease-in 6s forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      .cover-content {
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        padding: 3rem;
+        background: rgba(245, 230, 211, 0.95);
+        border-radius: 10px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+          inset 0 0 100px rgba(139, 115, 85, 0.1);
+        max-width: 700px;
+        border: 3px solid var(--sepia-brown);
+        transform: perspective(1000px) rotateY(0deg);
+        transition: transform 0.6s ease;
+      }
+
+      .cover-content:hover {
+        transform: perspective(1000px) rotateY(5deg) scale(1.02);
+      }
+
+      .cover-title {
+        font-family: "Dancing Script", cursive;
+        font-size: 5rem;
+        color: var(--deep-burgundy);
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .cover-subtitle {
+        font-size: 2rem;
+        color: var(--sepia-brown);
+        margin-bottom: 2rem;
+        font-weight: 300;
+      }
+
+      .cover-date {
+        font-family: "Caveat", cursive;
+        font-size: 1.8rem;
+        color: var(--rose-pink);
+        font-weight: 600;
+      }
+
+      /* Washi tape decorations */
+      .washi-tape {
+        position: absolute;
+        height: 40px;
+        background: repeating-linear-gradient(
+          45deg,
+          var(--tape-color),
+          var(--tape-color) 10px,
+          rgba(232, 220, 196, 0.7) 10px,
+          rgba(232, 220, 196, 0.7) 20px
+        );
+        opacity: 0.8;
+        transform: rotate(-5deg);
+      }
+
+      .washi-tape.top {
+        top: 20%;
+        left: 10%;
+        width: 200px;
+      }
+
+      .washi-tape.bottom {
+        bottom: 25%;
+        right: 15%;
+        width: 180px;
+        transform: rotate(8deg);
+      }
+
+      .page-turn-indicator {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "Caveat", cursive;
+        font-size: 1.5rem;
+        color: var(--vintage-cream);
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        40% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+        60% {
+          transform: translateX(-50%) translateY(-5px);
+        }
+      }
+
+      /* Main scrapbook pages */
+      .scrapbook-pages {
+        background: var(--vintage-cream);
+        position: relative;
+      }
+
+      .page {
+        min-height: 100vh;
+        padding: 100px 50px;
+        position: relative;
+        opacity: 0;
+        transform: translateY(80px);
+        transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+          transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .page.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Page backgrounds with texture */
+      .page::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at 20% 80%,
+            rgba(212, 165, 165, 0.05) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(139, 115, 85, 0.05) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+      }
+
+      /* Polaroid photo styling */
+      .polaroid {
+        background: #fff;
+        padding: 15px 15px 60px 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
+          0 10px 30px rgba(0, 0, 0, 0.15);
+        position: relative;
+        display: inline-block;
+        transform: rotate(-2deg);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin: 20px;
+      }
+
+      .polaroid:hover {
+        transform: rotate(0deg) scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15),
+          0 15px 40px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+      }
+
+      .polaroid:nth-child(even) {
+        transform: rotate(3deg);
+      }
+
+      .polaroid:nth-child(3n) {
+        transform: rotate(-4deg);
+      }
+
+      .polaroid-photo {
+        width: 350px;
+        height: 350px;
+        background: linear-gradient(
+          135deg,
+          var(--rose-pink),
+          var(--soft-yellow)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .polaroid-caption {
+        font-family: "Caveat", cursive;
+        font-size: 1.8rem;
+        color: var(--sepia-brown);
+        text-align: center;
+        margin-top: 15px;
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+      }
+
+      /* Sticky notes */
+      .sticky-note {
+        background: #fff59d;
+        padding: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+        transform: rotate(2deg);
+        max-width: 400px;
+        margin: 40px auto;
+        font-family: "Caveat", cursive;
+        font-size: 1.8rem;
+        line-height: 1.8;
+        color: var(--ink-black);
+      }
+
+      .sticky-note::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 20px;
+        background: rgba(232, 220, 196, 0.6);
+        border-radius: 2px;
+      }
+
+      .sticky-note.yellow {
+        background: #fff59d;
+      }
+      .sticky-note.pink {
+        background: #ffd6d6;
+      }
+      .sticky-note.blue {
+        background: #d6e5ff;
+      }
+      .sticky-note.green {
+        background: #d6ffd6;
+      }
+
+      /* Handwritten headers */
+      .handwritten-title {
+        font-family: "Dancing Script", cursive;
+        font-size: 4.5rem;
+        color: var(--deep-burgundy);
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+      }
+
+      .handwritten-title::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 3px;
+        background: var(--rose-pink);
+      }
+
+      /* Scrapbook sections */
+      .memory-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      /* Tape pieces on polaroids */
+      .tape-piece {
+        position: absolute;
+        width: 100px;
+        height: 30px;
+        background: rgba(232, 220, 196, 0.7);
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%) rotate(-3deg);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Decorative elements */
+      .heart-doodle {
+        position: absolute;
+        font-size: 2rem;
+        opacity: 0.3;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(10deg);
+        }
+      }
+
+      /* Scrapbook page with photos layout */
+      .scrapbook-layout {
+        max-width: 1400px;
+        margin: 0 auto;
+        position: relative;
+        padding: 60px 20px;
+      }
+
+      .photo-cluster {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin: 60px 0;
+      }
+
+      /* Timeline ribbon */
+      .timeline-ribbon {
+        background: var(--rose-pink);
+        padding: 20px 40px;
+        color: white;
+        text-align: center;
+        font-family: "Caveat", cursive;
+        font-size: 2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin: 80px 0;
+        position: relative;
+      }
+
+      .timeline-ribbon::before,
+      .timeline-ribbon::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+      }
+
+      .timeline-ribbon::before {
+        left: -20px;
+        border-width: 30px 20px 30px 0;
+        border-color: transparent var(--rose-pink) transparent transparent;
+      }
+
+      .timeline-ribbon::after {
+        right: -20px;
+        border-width: 30px 0 30px 20px;
+        border-color: transparent transparent transparent var(--rose-pink);
+      }
+
+      /* Music notes decoration */
+      .music-section {
+        background: rgba(255, 255, 255, 0.6);
+        padding: 50px;
+        border-radius: 15px;
+        margin: 60px auto;
+        max-width: 900px;
+        border: 3px dashed var(--rose-pink);
+        position: relative;
+      }
+
+      .music-note {
+        position: absolute;
+        font-size: 2.5rem;
+        opacity: 0.2;
+        animation: musicFloat 4s ease-in-out infinite;
+      }
+
+      @keyframes musicFloat {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-15px) rotate(15deg);
+        }
+      }
+
+      .music-note:nth-child(1) {
+        top: 10%;
+        left: 5%;
+        animation-delay: 0s;
+      }
+      .music-note:nth-child(2) {
+        top: 20%;
+        right: 10%;
+        animation-delay: 1s;
+      }
+      .music-note:nth-child(3) {
+        bottom: 15%;
+        left: 15%;
+        animation-delay: 2s;
+      }
+
+      .playlist-item {
+        background: white;
+        padding: 20px 30px;
+        margin: 15px 0;
+        border-left: 5px solid var(--rose-pink);
+        font-family: "Caveat", cursive;
+        font-size: 1.6rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transform: translateX(-10px);
+        transition: transform 0.3s ease;
+      }
+
+      .playlist-item:hover {
+        transform: translateX(5px);
+      }
+
+      /* Future section - dreamlike */
+      .dream-section {
+        background: linear-gradient(
+          135deg,
+          var(--deep-burgundy) 0%,
+          var(--sepia-brown) 100%
+        );
+        padding: 100px 50px;
+        text-align: center;
+        color: var(--vintage-cream);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .dream-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at 30% 40%,
+            rgba(212, 165, 165, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 70% 60%,
+            rgba(255, 248, 220, 0.1) 0%,
+            transparent 50%
+          );
+        animation: dreamShift 15s ease-in-out infinite;
+      }
+
+      @keyframes dreamShift {
+        0%,
+        100% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+
+      .dream-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+        max-width: 1200px;
+        margin: 60px auto 0;
+        position: relative;
+        z-index: 1;
+      }
+
+      .dream-card {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transform: translateY(0);
+        transition: transform 0.4s ease;
+        color: var(--ink-black);
+      }
+
+      .dream-card:hover {
+        transform: translateY(-15px);
+      }
+
+      .dream-icon {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+      }
+
+      .dream-card h3 {
+        font-family: "Dancing Script", cursive;
+        font-size: 2.2rem;
+        color: var(--deep-burgundy);
+        margin-bottom: 15px;
+      }
+
+      .dream-card p {
+        font-size: 1.3rem;
+        line-height: 1.7;
+        color: var(--sepia-brown);
+      }
+
+      /* Final letter section */
+      .letter-section {
+        background: var(--soft-yellow);
+        padding: 100px 50px;
+        max-width: 1000px;
+        margin: 0 auto;
+        position: relative;
+        box-shadow: inset 0 0 0 2px var(--sepia-brown),
+          0 20px 60px rgba(0, 0, 0, 0.1);
+      }
+
+      .letter-content {
+        font-family: "Caveat", cursive;
+        font-size: 2rem;
+        line-height: 2.2;
+        color: var(--ink-black);
+        text-align: left;
+      }
+
+      .letter-content p {
+        margin-bottom: 2rem;
+      }
+
+      .signature {
+        font-family: "Dancing Script", cursive;
+        font-size: 3rem;
+        color: var(--deep-burgundy);
+        text-align: right;
+        margin-top: 3rem;
+      }
+
+      /* Decorative stamps */
+      .stamp {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border: 3px dashed var(--sepia-brown);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        background: rgba(255, 255, 255, 0.8);
+        transform: rotate(15deg);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .cover-title {
+          font-size: 3.5rem;
+        }
+        .handwritten-title {
+          font-size: 3rem;
+        }
+        .polaroid-photo {
+          width: 280px;
+          height: 280px;
+        }
+        .memory-grid {
+          grid-template-columns: 1fr;
+        }
+        .page {
+          padding: 60px 20px;
+        }
+        .letter-content {
+          font-size: 1.6rem;
+        }
+      }
+
+      /* Parallax effect */
+      .parallax-layer {
+        position: relative;
+        transition: transform 0.1s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Opening Credits -->
+    <div class="opening-credits">
+      <div class="credits-text">
+        <div class="credits-line">A Love Story</div>
+        <div class="credits-line">Made Just For You</div>
+      </div>
+    </div>
+
+    <!-- Scrapbook Cover -->
+    <section class="scrapbook-cover">
+      <div class="washi-tape top"></div>
+      <div class="washi-tape bottom"></div>
+      <div class="heart-doodle" style="top: 15%; left: 10%">💕</div>
+      <div
+        class="heart-doodle"
+        style="top: 70%; right: 15%; animation-delay: 2s"
+      >
+        ❤️
+      </div>
+      <div
+        class="heart-doodle"
+        style="bottom: 20%; left: 20%; animation-delay: 4s"
+      >
+        💖
+      </div>
+
+      <div class="cover-content">
+        <div class="cover-title">Our Story</div>
+        <div class="cover-subtitle">Miles Apart, Hearts Together</div>
+        <div class="cover-date">One Year of Love<br />February 2025</div>
+      </div>
+
+      <div class="page-turn-indicator">Turn the page ↓</div>
+    </section>
+
+    <!-- Scrapbook Pages -->
+    <div class="scrapbook-pages">
+      <!-- Page 1: How We Met -->
+      <div class="page">
+        <div class="scrapbook-layout">
+          <h2 class="handwritten-title">Chapter 1: When Our Worlds Collided</h2>
+
+          <div class="photo-cluster">
+            <div class="polaroid">
+              <div class="tape-piece"></div>
+              <div class="polaroid-photo">
+                📸 Add your first photo together or when you started talking
+              </div>
+              <div class="polaroid-caption">The beginning of forever</div>
+            </div>
+          </div>
+
+          <div class="sticky-note yellow">
+            Remember that first conversation? I never imagined a simple hello
+            would change my entire life. You made me laugh, you made me think,
+            and from that moment, I couldn't stop thinking about you.
+          </div>
+
+          <div
+            class="sticky-note pink"
+            style="
+              margin-left: auto;
+              margin-right: 100px;
+              transform: rotate(-3deg);
+            "
+          >
+            You were different. You ARE different. Special in ways I didn't even
+            know I was looking for. 💕
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-ribbon">
+        ✈️ 5,683 Miles Between Lagos & the US ✈️
+      </div>
+
+      <!-- Page 2: Falling in Love -->
+      <div class="page">
+        <div class="scrapbook-layout">
+          <h2 class="handwritten-title">Chapter 2: Falling For You</h2>
+
+          <div class="photo-cluster">
+            <div class="polaroid" style="transform: rotate(4deg)">
+              <div class="tape-piece"></div>
+              <div class="polaroid-photo">
+                💌 Add a screenshot of a special conversation or memory
+              </div>
+              <div class="polaroid-caption">You make my heart smile</div>
+            </div>
+
+            <div class="polaroid" style="transform: rotate(-3deg)">
+              <div class="tape-piece"></div>
+              <div class="polaroid-photo">💕 Add another favorite photo</div>
+              <div class="polaroid-caption">Every moment with you</div>
+            </div>
+          </div>
+
+          <div class="sticky-note blue">
+            The first time you said "I love you"... I felt it before you even
+            said the words. Your love wrapped around me like the warmest
+            embrace, even through a screen thousands of miles away. Distance
+            became meaningless in that moment.
+          </div>
+
+          <div class="stamp" style="top: 50px; right: 100px">❤️</div>
+        </div>
+      </div>
+
+      <!-- Page 3: The Real You -->
+      <div class="page">
+        <div class="scrapbook-layout">
+          <h2 class="handwritten-title">Chapter 3: The Man You Are</h2>
+
+          <div class="photo-cluster">
+            <div class="polaroid">
+              <div class="tape-piece"></div>
+              <div class="polaroid-photo">
+                🏗️ Add a photo of him studying, playing football, or doing what
+                he loves
+              </div>
+              <div class="polaroid-caption">Watching you chase your dreams</div>
+            </div>
+          </div>
+
+          <div class="sticky-note green">
+            Your dedication amazes me. Construction engineering, football,
+            running - you pour your whole heart into everything. But what I love
+            most? You don't play about the people you care about. Including me.
+            That dedication, that loyalty... it's everything.
+          </div>
+
+          <div
+            class="sticky-note yellow"
+            style="transform: rotate(2deg); max-width: 500px"
+          >
+            Even with ADHD making it hard to focus, you ALWAYS find a way to be
+            present with me. You remember the little things I say. You check on
+            me. You make me feel like I'm the only person in the world. That's
+            real love, baby. 💪
+          </div>
+
+          <div
+            class="stamp"
+            style="bottom: 100px; left: 80px; transform: rotate(-12deg)"
+          >
+            ⚽
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-ribbon">🎵 Our Soundtrack 🎵</div>
+
+      <!-- Page 4: Music & Drives -->
+      <div class="page">
+        <div class="scrapbook-layout">
+          <h2 class="handwritten-title">Chapter 4: Our Virtual Drives</h2>
+
+          <div class="music-section">
+            <div class="music-note">🎵</div>
+            <div class="music-note">🎶</div>
+            <div class="music-note">🎵</div>
+
+            <p
+              style="
+                font-family: 'Caveat', cursive;
+                font-size: 1.8rem;
+                margin-bottom: 30px;
+                text-align: center;
+              "
+            >
+              Even though we can't physically drive together yet, we've created
+              our own world. Same music, same vibes, talking for hours... it's
+              our thing. 🚗
+            </p>
+
+            <div class="playlist-item">
+              🎵 Song Title 1 - The song that makes us think of each other
+            </div>
+            <div class="playlist-item">
+              🎵 Song Title 2 - Our late-night call anthem
+            </div>
+            <div class="playlist-item">
+              🎵 Song Title 3 - The one we'll blast on our first real drive
+            </div>
+            <div class="playlist-item">
+              🎵 Song Title 4 - When you told me you loved me
+            </div>
+            <div class="playlist-item">🎵 Song Title 5 - Our song ❤️</div>
+          </div>
+
+          <div class="sticky-note pink">
+            Can't wait for the day we're actually in the car together, your hand
+            in mine, our playlist on repeat, going nowhere and everywhere at the
+            same time. That's the dream. 🌅
+          </div>
+        </div>
+      </div>
+
+      <!-- Page 5: Sweet & Thoughtful -->
+      <div class="page">
+        <div class="scrapbook-layout">
+          <h2 class="handwritten-title">Chapter 5: Why You're So Special</h2>
+
+          <div class="photo-cluster">
+            <div class="polaroid" style="transform: rotate(-4deg)">
+              <div class="tape-piece"></div>
+              <div class="polaroid-photo">
+                📱 Add screenshots of sweet messages or a photo that shows his
+                thoughtful side
+              </div>
+              <div class="polaroid-caption">You always know what to say</div>
+            </div>
+
+            <div class="polaroid" style="transform: rotate(2deg)">
+              <div class="tape-piece"></div>
+              <div class="polaroid-photo">
+                💝 Add another meaningful photo or memory
+              </div>
+              <div class="polaroid-caption">My sweet, thoughtful man</div>
+            </div>
+          </div>
+
+          <div class="sticky-note blue">
+            It's the little things that make me fall deeper every day:
+            <br />• How you check on me <br />• The way you remember what I said
+            weeks ago <br />• Your good morning texts <br />• How you make me
+            laugh when I'm down <br />• The way you LISTEN - really listen
+          </div>
+
+          <div
+            class="sticky-note yellow"
+            style="margin-left: auto; margin-right: 50px"
+          >
+            You make me feel seen. Heard. Valued. Loved in ways I never knew I
+            could be loved. Thank you for being YOU. 💕
+          </div>
+        </div>
+      </div>
+
+      <!-- Page 6: Our Moments -->
+      <div class="page">
+        <div class="scrapbook-layout">
+          <h2 class="handwritten-title">Chapter 6: Just Us</h2>
+
+          <div class="photo-cluster">
+            <div class="polaroid">
+              <div class="tape-piece"></div>
+              <div class="polaroid-photo">
+                🏠 Add a photo that represents your quiet moments together
+              </div>
+              <div class="polaroid-caption">Staying in is our favorite</div>
+            </div>
+          </div>
+
+          <div
+            class="sticky-note pink"
+            style="max-width: 600px; margin: 40px auto"
+          >
+            There's nothing I love more than our quiet moments. Just you and me,
+            shutting out the world. Talking, laughing, being vulnerable, showing
+            each other love in every way. You make me feel safe. Cherished.
+            Completely yours.
+            <br /><br />
+            Those are the moments I treasure most. When it's just us, no
+            distance, no screens - just our hearts beating as one. 💖
+          </div>
+
+          <div class="sticky-note green" style="transform: rotate(-2deg)">
+            Inside joke alert: [Add your funniest inside joke here - the one
+            that makes you both crack up!] 😂
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-ribbon">✨ Looking Forward ✨</div>
+
+      <!-- Dream Section -->
+      <div class="dream-section">
+        <h2
+          class="handwritten-title"
+          style="color: var(--vintage-cream); font-size: 5rem"
+        >
+          Our Future Together
+        </h2>
+        <p
+          style="
+            font-size: 1.8rem;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            line-height: 2;
+          "
+        >
+          Distance is just a chapter in our story. Our forever is the whole
+          book.
+        </p>
+
+        <div class="dream-cards">
+          <div class="dream-card">
+            <div class="dream-icon">🏠</div>
+            <h3>Closing the Distance</h3>
+            <p>
+              The day we finally share the same zip code. Waking up next to you.
+              Coming home to you. Building our life together, one day at a time.
+            </p>
+          </div>
+
+          <div class="dream-card">
+            <div class="dream-icon">🚗</div>
+            <h3>Real Drives</h3>
+            <p>
+              Actually cruising together - your hand in mine, our playlist
+              blasting, going on adventures. No more virtual drives. The real
+              thing.
+            </p>
+          </div>
+
+          <div class="dream-card">
+            <div class="dream-icon">✈️</div>
+            <h3>Adventures</h3>
+            <p>
+              Exploring the world together. Nigeria, the US, and everywhere in
+              between. Making memories we can hold in our hands, not just our
+              hearts.
+            </p>
+          </div>
+
+          <div class="dream-card">
+            <div class="dream-icon">💍</div>
+            <h3>Forever & Always</h3>
+            <p>
+              Building the life we talk about. The home, the love, the family.
+              You and me, against the world, for the rest of our lives.
+            </p>
+          </div>
+
+          <div class="dream-card">
+            <div class="dream-icon">🎓</div>
+            <h3>Watching You Win</h3>
+            <p>
+              Being there for every milestone. Your graduation, your career,
+              your dreams coming true. Cheering you on every step of the way.
+            </p>
+          </div>
+
+          <div class="dream-card">
+            <div class="dream-icon">❤️</div>
+            <h3>Growing Old Together</h3>
+            <p>
+              Years from now, looking back at this scrapbook, laughing about our
+              long-distance days, grateful we never gave up on us.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final Letter -->
+      <div class="page">
+        <div class="letter-section">
+          <div class="stamp" style="top: 30px; right: 30px">💕</div>
+
+          <div class="letter-content">
+            <p>My Love,</p>
+
+            <p>
+              One year. 365 days. Thousands of texts. Hundreds of calls.
+              Countless "I miss yous" and "I love yous". And somehow, it feels
+              like both forever and just the beginning.
+            </p>
+
+            <p>
+              You are my best friend, my safe place, my home - even from 5,683
+              miles away. Thank you for loving me the way you do. For being
+              patient with the distance. For making me feel like the most
+              special person in the world, even when we're oceans apart.
+            </p>
+
+            <p>
+              I watch you work hard in school, give your all on the football
+              field, push yourself while running, and it makes me so proud. You
+              don't just dream - you DO. And you never forget about the people
+              you love along the way. That's what makes you extraordinary.
+            </p>
+
+            <p>
+              I love how sweet you are. How thoughtful. How you remember every
+              little thing. How even with ADHD making focus hard, you always
+              find a way to make me feel prioritized. Those late-night talks,
+              our virtual drives, staying in together - those moments mean
+              everything to me.
+            </p>
+
+            <p>
+              This website is my way of saying: I see you. I appreciate you. I
+              love you more than words in a message could ever express. You make
+              distance bearable. You make love feel easy. You make me believe in
+              us every single day.
+            </p>
+
+            <p>
+              Here's to one year down and forever to go. To virtual drives that
+              will become real ones. To "I miss you" turning into "I'm home". To
+              building the life we dream about.
+            </p>
+
+            <p>Happy Anniversary, baby. You are my greatest adventure.</p>
+
+            <div class="signature">
+              All my love, always,<br />
+              [Your Name] 💕
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Smooth parallax effect
+      document.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll(
+          ".heart-doodle, .stamp"
+        );
+
+        parallaxElements.forEach((el, index) => {
+          const speed = (index + 1) * 0.1;
+          el.style.transform = `translateY(${scrolled * speed}px) rotate(${
+            scrolled * 0.02
+          }deg)`;
+        });
+      });
+
+      // Intersection Observer for page animations
+      const pages = document.querySelectorAll(".page");
+
+      const observerOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      pages.forEach((page) => {
+        observer.observe(page);
+      });
+
+      // Polaroid tilt effect on mouse move
+      document.querySelectorAll(".polaroid").forEach((polaroid) => {
+        polaroid.addEventListener("mousemove", (e) => {
+          const rect = polaroid.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+
+          const rotateX = (y - centerY) / 20;
+          const rotateY = (centerX - x) / 20;
+
+          polaroid.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+        });
+
+        polaroid.addEventListener("mouseleave", () => {
+          const originalRotation =
+            polaroid.style.transform.match(/rotate\((.+?)deg\)/);
+          const rotation = originalRotation ? originalRotation[1] : "0";
+          polaroid.style.transform = `rotate(${rotation}deg)`;
+        });
+      });
+
+      // Click to add hearts
+      document.addEventListener("click", (e) => {
+        if (e.target.tagName !== "BUTTON") {
+          const heart = document.createElement("div");
+          heart.innerHTML = "💕";
+          heart.style.position = "fixed";
+          heart.style.left = e.clientX + "px";
+          heart.style.top = e.clientY + "px";
+          heart.style.fontSize = "2rem";
+          heart.style.pointerEvents = "none";
+          heart.style.zIndex = "9999";
+          heart.style.animation = "floatUpHeart 3s ease-out forwards";
+          document.body.appendChild(heart);
+
+          setTimeout(() => heart.remove(), 3000);
+        }
+      });
+
+      // Add keyframe for heart animation
+      const style = document.createElement("style");
+      style.textContent = `
+            @keyframes floatUpHeart {
+                0% { 
+                    transform: translateY(0) rotate(0deg) scale(1);
+                    opacity: 1;
+                }
+                100% { 
+                    transform: translateY(-150px) rotate(30deg) scale(0);
+                    opacity: 0;
+                }
+            }
+        `;
+      document.head.appendChild(style);
+    </script>
+  </body>
+</html>
