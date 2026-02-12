@@ -20,13 +20,11 @@ musicToggle.addEventListener("click", () => {
   isPlaying = !isPlaying;
 });
 
-// Stop music when leaving page or closing browser
 window.addEventListener("beforeunload", () => {
   bgMusic.pause();
   bgMusic.currentTime = 0;
 });
 
-// Also stop when page visibility changes (tab switching)
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) {
     bgMusic.pause();
@@ -35,7 +33,6 @@ document.addEventListener("visibilitychange", () => {
   }
 });
 
-// Pause background music when Spotify plays
 iframes.forEach((iframe) => {
   iframe.addEventListener("mouseenter", () => {
     if (isPlaying) {
@@ -45,30 +42,6 @@ iframes.forEach((iframe) => {
     }
   });
 });
-
-// musicToggle.addEventListener("click", () => {
-//   if (isPlaying) {
-//     bgMusic.pause();
-//     musicToggle.textContent = "🔇";
-//   } else {
-//     bgMusic.play();
-//     musicToggle.textContent = "🎵";
-//   }
-//   isPlaying = !isPlaying;
-// });
-
-// window.addEventListener("beforeunload", () => {
-//   bgMusic.pause();
-//   bgMusic.currentTime = 0;
-// });
-
-// iframes.forEach((iframe) => {
-//   iframe.addEventListener("mouseenter", () => {
-//     bgMusic.pause();
-//     musicToggle.textContent = "🔇";
-//     isPlaying = false;
-//   });
-// });
 
 turnPageBtn.addEventListener("click", () => {
   bgMusic.play();
@@ -171,36 +144,14 @@ const letterPage = document.querySelector(".page:last-child");
 const letterSection = document.querySelector(".letter-section");
 
 if (letterSection && letterPage) {
-  const ribbonOverlay = document.createElement("div");
-  ribbonOverlay.className = "ribbon-overlay";
-  ribbonOverlay.innerHTML = `
-    <div class="ribbon-bow">
-      <div class="ribbon-knot">🎀</div>
-      <div class="ribbon-tail ribbon-tail--left"></div>
-      <div class="ribbon-tail ribbon-tail--right"></div>
-    </div>
-  `;
-
-  letterPage.style.position = "relative";
-  letterPage.insertBefore(ribbonOverlay, letterSection);
-
-  const ribbonObserver = new IntersectionObserver(
+  const letterObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setTimeout(() => {
-            ribbonOverlay.classList.add("ribbon--loosen");
-          }, 600);
-          setTimeout(() => {
-            ribbonOverlay.classList.add("ribbon--slide");
-          }, 1400);
-
-          setTimeout(() => {
-            ribbonOverlay.classList.add("ribbon--gone");
             letterSection.classList.add("unrolled");
-          }, 2200);
-
-          ribbonObserver.disconnect();
+          }, 300);
+          letterObserver.disconnect();
         }
       });
     },
@@ -209,5 +160,5 @@ if (letterSection && letterPage) {
     }
   );
 
-  ribbonObserver.observe(letterPage);
+  letterObserver.observe(letterPage);
 }

@@ -259,7 +259,7 @@ body::before {
   border-radius: 15px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), 0 0 0 10px rgba(139, 115, 85, 0.1);
   max-width: 700px;
-  margin: 0 auto;
+  margin: 20px auto;
   position: relative;
   animation: frameGlow 3s ease-in-out infinite;
 }
@@ -307,7 +307,7 @@ body::before {
 
 .couple-photo {
   width: 100%;
-  height: 500px;
+  height: 350px;
   background: linear-gradient(135deg, var(--rose-pink), var(--soft-yellow));
   border-radius: 10px;
   display: flex;
@@ -316,10 +316,18 @@ body::before {
   color: white;
   font-size: 1.5rem;
   text-align: center;
-  padding: 40px;
+  padding: 0;
   font-family: "Caveat", cursive;
   position: relative;
   overflow: hidden;
+}
+
+.couple-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
 }
 
 .couple-photo::after {
@@ -650,6 +658,14 @@ body::before {
 }
 
 .polaroid-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+.polaroid-photo video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1546,6 +1562,222 @@ body::before {
   }
 }
 
+.film-strip-section {
+  background: linear-gradient(
+    135deg,
+    var(--vintage-cream) 0%,
+    #ffeee8 50%,
+    var(--soft-yellow) 100%
+  );
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle texture overlay */
+.film-strip-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 115, 85, 0.02) 2px,
+      rgba(139, 115, 85, 0.02) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 115, 85, 0.02) 2px,
+      rgba(139, 115, 85, 0.02) 4px
+    );
+  pointer-events: none;
+}
+
+/* Decorative corner elements */
+.film-strip-section::after {
+  content: "📷";
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  font-size: 3.5rem;
+  opacity: 0.15;
+  animation: float 6s ease-in-out infinite;
+}
+
+.film-subtitle {
+  font-family: "Caveat", cursive;
+  font-size: 2rem;
+  color: var(--deep-burgundy);
+  text-align: center;
+  margin-bottom: 60px;
+  opacity: 0.8;
+}
+
+/* Horizontal scrolling polaroid strip */
+.film-reel {
+  position: relative;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 60px 20px;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  /* Hide scrollbar but keep functionality */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.film-reel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Gentle scroll hint */
+.film-reel::before {
+  content: "← Swipe to see more →";
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Caveat", cursive;
+  font-size: 1.4rem;
+  color: var(--sepia-brown);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.film-frames-container {
+  display: flex;
+  gap: 40px;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Polaroid-style frames */
+.film-frame {
+  flex-shrink: 0;
+  width: 320px;
+  background: #fff;
+  padding: 15px 15px 70px 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transform: rotate(-2deg);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Alternate rotations for natural scattered look */
+.film-frame:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+.film-frame:nth-child(3n) {
+  transform: rotate(-4deg);
+}
+
+.film-frame:nth-child(4n) {
+  transform: rotate(2deg);
+}
+
+/* Tape decoration on top */
+.film-frame::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 25px;
+  background: rgba(232, 220, 196, 0.7);
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.film-frame:hover {
+  transform: rotate(0deg) scale(1.08);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25), 0 8px 16px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+/* Photo container */
+.film-frame img,
+.film-frame video {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+  border-radius: 3px;
+}
+
+/* Handwritten caption at bottom */
+.film-frame::after {
+  content: attr(data-caption);
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  font-family: "Caveat", cursive;
+  font-size: 1.6rem;
+  color: var(--sepia-brown);
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Shimmer effect */
+.film-frame img::after,
+.film-frame video::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 6s ease-in-out infinite;
+  animation-delay: calc(var(--frame-index) * 0.5s);
+  pointer-events: none;
+}
+
+/* Decorative washi tape pieces scattered around */
+.washi-decoration {
+  position: absolute;
+  width: 120px;
+  height: 30px;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(212, 165, 165, 0.4),
+    rgba(212, 165, 165, 0.4) 10px,
+    rgba(232, 220, 196, 0.4) 10px,
+    rgba(232, 220, 196, 0.4) 20px
+  );
+  border-radius: 3px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.washi-decoration:nth-child(1) {
+  top: 100px;
+  left: 5%;
+  transform: rotate(-15deg);
+}
+
+.washi-decoration:nth-child(2) {
+  top: 60%;
+  right: 8%;
+  transform: rotate(12deg);
+}
+
 @media (max-width: 768px) {
   .cover-title {
     font-size: 3rem;
@@ -1564,7 +1796,6 @@ body::before {
   .couple-photo {
     height: 350px;
     font-size: 1.2rem;
-    padding: 20px;
   }
 
   .couple-photo-frame {
@@ -1736,6 +1967,39 @@ body::before {
   .ribbon--slide .ribbon-tail--right {
     transform: translateY(-50%) translateX(150px) rotate(20deg);
   }
+
+  .film-strip-section {
+    padding: 80px 15px;
+  }
+
+  .film-subtitle {
+    font-size: 1.6rem;
+    margin-bottom: 40px;
+  }
+
+  .film-frame {
+    width: 280px;
+    padding: 12px 12px 60px 12px;
+  }
+
+  .film-frame img,
+  .film-frame video {
+    height: 320px;
+  }
+
+  .film-frame::after {
+    font-size: 1.4rem;
+  }
+
+  .film-reel::before {
+    font-size: 1.2rem;
+    bottom: 10px;
+  }
+
+  .film-frames-container {
+    gap: 30px;
+    padding: 0 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1812,6 +2076,33 @@ body::before {
 
   .music-note {
     font-size: 2rem;
+  }
+
+  .film-strip-section {
+    padding: 60px 10px;
+  }
+
+  .film-frame {
+    width: 240px;
+    padding: 10px 10px 50px 10px;
+  }
+
+  .film-frame img,
+  .film-frame video {
+    height: 280px;
+  }
+
+  .film-frame::after {
+    font-size: 1.2rem;
+    bottom: 12px;
+  }
+
+  .film-reel {
+    scroll-snap-type: x proximity;
+  }
+
+  .film-frame {
+    scroll-snap-align: center;
   }
 }
 
