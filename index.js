@@ -8,6 +8,12 @@ bgMusic.volume = 0;
 const musicToggle = document.getElementById("musicToggle");
 let isPlaying = false;
 const iframes = document.querySelectorAll("iframe");
+const bottleOverlay = document.getElementById("bottleOverlay");
+const bottleMessage = document.getElementById("bottleMessage");
+const bottleAudio = document.getElementById("bottleAudio");
+const messageScroll = document.getElementById("messageScroll");
+const closeBottle = document.getElementById("closeBottle");
+const sectionBottles = document.querySelectorAll(".section-bottle");
 
 musicToggle.addEventListener("click", () => {
   if (isPlaying) {
@@ -162,3 +168,76 @@ if (letterSection && letterPage) {
 
   letterObserver.observe(letterPage);
 }
+
+function createConfetti() {
+  const colors = ["#d4a5a5", "#8b7355", "#fff8dc", "#6b4e4e"];
+
+  for (let i = 0; i < 30; i++) {
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.style.left = Math.random() * 100 + "%";
+    confetti.style.background =
+      colors[Math.floor(Math.random() * colors.length)];
+    confetti.style.animationDelay = Math.random() * 0.3 + "s";
+    document.body.appendChild(confetti);
+
+    setTimeout(() => confetti.remove(), 2000);
+  }
+}
+
+sectionBottles.forEach((bottle) => {
+  bottle.addEventListener("click", () => {
+    const message = bottle.getAttribute("data-message");
+    const audioSrc = bottle.getAttribute("data-audio");
+
+    bottleMessage.textContent = message;
+
+    if (audioSrc) {
+      bottleAudio.src = audioSrc;
+      bottleAudio.style.display = "block";
+      bottleMessage.textContent =
+        "💕 I recorded something special for you... Press play 🎙️";
+    } else {
+      bottleAudio.style.display = "none";
+    }
+
+    bottleOverlay.classList.add("active");
+    createConfetti();
+
+    if (isPlaying) {
+      bgMusic.volume = 0.1;
+    }
+
+    bottle.style.opacity = "0";
+    bottle.style.transform = "translateX(-50%) scale(0)";
+    bottle.style.pointerEvents = "none";
+  });
+});
+
+closeBottle.addEventListener("click", () => {
+  bottleOverlay.classList.remove("active");
+
+  if (!bottleAudio.paused) {
+    bottleAudio.pause();
+    bottleAudio.currentTime = 0;
+  }
+
+  if (isPlaying) {
+    setTimeout(() => {
+      let fade = setInterval(() => {
+        if (bgMusic.volume < 0.3) {
+          bgMusic.volume += 0.02;
+        } else {
+          clearInterval(fade);
+        }
+      }, 50);
+    }, 300);
+  }
+});
+
+// Close on overlay click
+bottleOverlay.addEventListener("click", (e) => {
+  if (e.target === bottleOverlay) {
+    closeBottle.click();
+  }
+});

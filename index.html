@@ -15,6 +15,25 @@
   <button id="musicToggle" class="music-toggle">🎵</button>
 
   <body>
+    <div class="bottle-overlay" id="bottleOverlay">
+      <div class="bottle-container">
+        <div class="bottle">
+          <div class="bottle-cork">🍾</div>
+          <div class="message-scroll" id="messageScroll">
+            <p id="bottleMessage"></p>
+            <audio
+              id="bottleAudio"
+              controls
+              style="display: none; width: 100%; margin-top: 20px"
+            >
+              <source src="" type="audio/mpeg" />
+            </audio>
+          </div>
+        </div>
+        <button class="close-bottle" id="closeBottle">Close ✕</button>
+      </div>
+    </div>
+
     <div class="hearts-container">
       <div class="floating-heart">💕</div>
       <div class="floating-heart">❤️</div>
@@ -94,16 +113,22 @@
                 <video autoplay loop muted playsinline>
                   <source src="/img/first video.mp4" type="video/mp4" />
                 </video>
-                <!-- <img src="/img/first video.mp4" alt="When we met" /> -->
               </div>
               <div class="polaroid-caption">The beginning of forever</div>
             </div>
           </div>
 
           <div class="sticky-note yellow">
-            Remember that first conversation? I never imagined a simple hello
-            would change my entire life. You made me laugh, you made me think,
+            Remember that first conversation? I never imagined a silly video
+            would change my entire life. You made me laugh, you made me curious,
             and from that moment, I couldn't stop thinking about you.
+          </div>
+
+          <div
+            class="section-bottle"
+            data-message="You are my dream come true. 💏🌠"
+          >
+            📮
           </div>
 
           <div
@@ -120,9 +145,7 @@
         </div>
       </div>
 
-      <div class="timeline-ribbon">
-        ✈️ 5,683 Miles Between Lagos & the US ✈️
-      </div>
+      <div class="timeline-ribbon">✈️ 5,683 Miles Between US ✈️</div>
 
       <div class="page">
         <div class="scrapbook-layout">
@@ -144,11 +167,18 @@
             </div>
           </div>
 
+          <div
+            class="section-bottle"
+            data-message="The late-night visits were one of my favorite things to look forward to... it made everything feel right. 🌅💖"
+          >
+            📮
+          </div>
+
           <div class="sticky-note blue">
-            The first time you said "I love you"... I felt it before you even
-            said the words. Your love wrapped around me like the warmest
-            embrace, even through a screen thousands of miles away. Distance
-            became meaningless in that moment.
+            The first time you said “I love you”… I saw it in your eyes before
+            the words even left your mouth. It was the way you looked at me. The
+            way your voice softened. The way you said it like you’d already
+            decided. In that moment, I knew your love was genuine.
           </div>
 
           <div class="stamp" style="top: 50px; right: 100px">❤️</div>
@@ -169,13 +199,22 @@
           >
             Remember when we were just getting to know each other and I needed
             help installing that software on my laptop? I was probably stressing
-            about it, and you just... stepped in. No hesitation. You walked me
-            through it so patiently, explained everything, made sure it worked
-            perfectly.
+            about it lol, and you just... stepped in. No hesitation. You walked
+            me through it so patiently and really gave it your all. Even though
+            we couldn’t get it to work in the end, the way you showed up for me
+            told me everything I needed to know.
             <br /><br />
             That's when I knew you were different. You were willing to help,
             even when we barely knew each other. You cared. And that meant
             everything. 💻💕
+          </div>
+
+          <div
+            class="section-bottle"
+            data-audio="./music/voice.mp4"
+            data-message="I recorded something special for you... 🎙️💕"
+          >
+            📮
           </div>
 
           <div class="photo-cluster">
@@ -216,31 +255,39 @@
           </div>
 
           <div class="sticky-note green">
-            Your dedication amazes me. Construction engineering, football,
-            running, growth & marketing management, diving into Web3 and crypto
-            - you pour your whole heart into everything. But what I love most?
-            You don't play about the people you care about. Including me. That
-            dedication, that loyalty... it's everything.
+            Your dedication amazes me. School, football, running, work and all
+            the different projects you take on - you pour your whole heart into
+            everything. But what I love most? You don't play about the people
+            you care about. Including me. That dedication, that loyalty... it's
+            everything.
+          </div>
+
+          <div
+            class="section-bottle"
+            data-message="I screenshot your texts when they make me smile. My camera roll is basically a love letter at this point. 📱❤️"
+          >
+            📮
           </div>
 
           <div
             class="sticky-note yellow"
             style="transform: rotate(2deg); max-width: 500px"
           >
-            Even with ADHD making it hard to focus, you ALWAYS find a way to be
-            present with me. You remember the little things I say. You check on
-            me. You make me feel like I'm the only person in the world. That's
-            real love, baby. 💪
+            No matter how busy life gets, you always find a way to be present
+            with me. You remember the important little details. You check on me.
+            You make me feel like I’m the only person in the world. That’s real
+            baby. 🎀
           </div>
 
           <div
             class="sticky-note pink"
             style="transform: rotate(-1deg); max-width: 520px"
           >
-            And can we talk about how NERDY you are? 🤓 I love how your eyes
-            light up when you talk about Web3, crypto, marketing strategies...
-            You're not just smart, you're passionate about learning and growing.
-            That's so attractive.
+            And can we talk about how NERDY you are? lolll 🤓 II love how your
+            eyes light up when you start talking about something you’re
+            passionate about. You could go on for hours, completely in your
+            zone, and I just sit there smiling because I love seeing you like
+            that. It’s so attractive.
           </div>
 
           <div
@@ -259,7 +306,81 @@
         </div>
       </div>
 
-      <div class="timeline-ribbon">🎵 Our Soundtrack 🎵</div>
+      <div class="timeline-ribbon">🍜 Showing Me Your World 🍜</div>
+
+      <div class="page">
+        <div class="scrapbook-layout">
+          <h2 class="handwritten-title">You Let Me In From Day One</h2>
+
+          <div
+            class="sticky-note pink"
+            style="max-width: 650px; margin: 40px auto"
+          >
+            From our very first hangout, you didn't hold back. You took me to
+            some of your favorite spots around Ogudu - the places that mattered
+            to you, the food you loved, the streets you knew by heart.You shared
+            your world with me so naturally, and I’ll always appreciate that.
+            🌍💕 (I kinda miss that Banana bread though lol)
+          </div>
+
+          <div
+            class="section-bottle"
+            data-message="The way your mind works is incredible. I love that about you 🏠💕"
+          >
+            📮
+          </div>
+
+          <div class="photo-cluster">
+            <div class="polaroid">
+              <div class="polaroid-photo">
+                <img src="/img/ogudu.jpeg" alt="Your favorite places" />
+              </div>
+              <div class="polaroid-caption">Your favorite spots 🍜</div>
+            </div>
+          </div>
+
+          <div
+            class="sticky-note blue"
+            style="max-width: 650px; margin: 40px auto"
+          >
+            And that first time I came over to spend the day with you? You were
+            so excited to show me "The Men's Club." Even though I couldn’t
+            really get into it 😭.. Still, I loved that you wanted to share
+            something you love with me, you wanted me to experience it with you.
+            That's when I realized: you wanted me in every part of your life,
+            right from the start. ❤️
+            <br />
+            <br />
+            P.S. — Also, can we talk about how satisfying it was to whoop your
+            ass in Mortal Kombat that day… and I’d never even played before?
+            😏🎮
+          </div>
+
+          <div
+            class="sticky-note yellow"
+            style="
+              transform: rotate(-1deg);
+              max-width: 550px;
+              margin: 40px auto;
+            "
+          >
+            You've always been like that. Ready to introduce me to your favorite
+            things, your favorite podcasts, your favorite places, those random
+            YouTube videos lol. Never keeping me at arm's length. Always pulling
+            me closer, showing me what makes you happy, hoping it'll make me
+            happy too. And it does. Every single time. 🥰
+          </div>
+
+          <div
+            class="stamp"
+            style="bottom: 80px; right: 100px; transform: rotate(-8deg)"
+          >
+            🏠
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-ribbon">🎵 Our Music Moments 🎵</div>
 
       <div class="page">
         <div class="scrapbook-layout">
@@ -273,12 +394,14 @@
               transform: rotate(-1deg);
             "
           >
-            Back when you were still in Nigeria, before you traveled... Those
-            drives together were everything. Just us, the music, the
-            conversation, the vibe. And those runs! You made me start running
-            with you because my lazy ass needed motivation (and honestly, I just
-            wanted to do everything with you). I miss those moments. But we'll
-            have them again. Real drives. Real runs. Together. Soon. 🚗🏃‍♀️💕
+            Music was one of the first things we bonded over. From swapping
+            songs to playing tracks on late night calls, it became our little
+            love language. 🎵💖
+            <br />
+            <br />
+            Before you traveled... Those drives together were everything. Just
+            us, the music, the conversation, the vibe. I miss those moments. But
+            we'll have them again. Real drives Together. Soon. 🚗💕
           </div>
 
           <div class="music-section">
@@ -289,10 +412,29 @@
             <p class="music-section-title">Our Soundtrack 🎵</p>
 
             <p class="music-section-subtitle">
-              Your love for music is contagious. Amapiano vibes, Asa's soulful
-              voice, Wizkid's hits, The Cavemen's unique sound... You introduced
-              me to so much good music. 🎶
+              There are certain songs that always take me back to you, to that
+              exact moment we shared, every single time... You introduced me to
+              so much good music. 🎶
             </p>
+
+            <div class="playlist-item">
+              <iframe
+                data-testid="embed-iframe"
+                style="border-radius: 12px"
+                src="https://open.spotify.com/embed/track/6BdhR1gE0lAGdPbHi53sOp?utm_source=generator"
+                width="100%"
+                height="100"
+                frameborder="0"
+                allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              ></iframe>
+              <p class="playlist-title">
+                🎵 This song played every single time we were in the car
+                together. Somehow, it always found its way onto your shuffle
+                lol.
+              </p>
+            </div>
 
             <div class="playlist-item">
               <iframe
@@ -306,7 +448,10 @@
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
               ></iframe>
-              <p class="playlist-title">🎵 Your Favorite anthem</p>
+              <p class="playlist-title">
+                🎵 You recently shared this with me, and I honestly haven’t
+                stopped listening. Every time I hear it, I think of you. 💖
+              </p>
             </div>
             <div class="playlist-item">
               <iframe
@@ -320,7 +465,12 @@
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
               ></iframe>
-              <p class="playlist-title">🎵 A song that reminds me of us</p>
+              <p class="playlist-title">
+                🎵 One night, we got back from an outing and just sat in the
+                car… and then you pulled me inside, played music on the speaker,
+                and danced with me in the living room. I’ll never forget it.
+                💃💖
+              </p>
             </div>
             <div class="playlist-item">
               <iframe
@@ -335,15 +485,15 @@
                 loading="lazy"
               ></iframe>
               <p class="playlist-title">
-                🎵 I miss watching you go crazy over Don Jazzy's instumentals on
-                this track
+                🎵 I miss watching you go absolutely crazy over the
+                instrumentals on this track every single time. 💖
               </p>
             </div>
             <div class="playlist-item">
               <iframe
                 data-testid="embed-iframe"
                 style="border-radius: 12px"
-                src="https://open.spotify.com/embed/track/2m8knT0EYaPGJzi3s9m4f9?utm_source=generator"
+                src="https://open.spotify.com/embed/track/6lxai3ZSpU2UctunwrCjvp?utm_source=generator"
                 width="100%"
                 height="100"
                 frameborder="0"
@@ -352,40 +502,50 @@
                 loading="lazy"
               ></iframe>
               <p class="playlist-title">
-                🎵 Just two artists you love on the same track 🤗
+                🎵 Do I even need to explain why this one’s here? 😏💖
               </p>
             </div>
             <div class="playlist-item">
               <iframe
+                data-testid="embed-iframe"
+                style="border-radius: 12px"
+                src="https://open.spotify.com/embed/track/3GgYYPUOIwd1uMBvfv5bNW?utm_source=generator"
                 width="100%"
                 height="100"
-                src="https://www.youtube.com/embed/iKeTkdb9fhY"
-                title="Ayo by Ife (lyric video)"
                 frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
+                allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
               ></iframe>
               <p class="playlist-title">
-                🎵 Song Title 5 - Our special song ❤️
+                🎵 I claimed I could sing like Asa and play her in a movie? You
+                played this track so I could prove it… and, well, I totally
+                botched it. 😅💖
               </p>
             </div>
+          </div>
+
+          <div
+            class="section-bottle"
+            data-message="You make me laugh. Somehow, you always know exactly how to turn my mood around—every single time. 💖"
+          >
+            📮
           </div>
 
           <div
             class="sticky-note green"
             style="transform: rotate(2deg); max-width: 600px"
           >
-            And let's not forget your podcasts! 😂 "Foolish Idiots" and "I Said
-            What I Said" - you're always listening to something. I love how
-            you're always learning, always curious, always growing. That's so
-            YOU. 🎧
+            Oh and let's not forget your podcasts! 🙂‍↔️ "Brilliant Idiots" and
+            "I Said What I Said" - you're always listening to something. I love
+            how you're always learning, always curious, always growing. That's
+            so YOU. 🎧
           </div>
 
           <div class="sticky-note yellow">
             Can't wait for the day we're actually driving together again, your
-            hand in mine, our playlist on repeat, going nowhere and everywhere
-            at the same time. That's the dream. 🌅
+            hand in mine, music on repeat, going nowhere and everywhere at the
+            same time. That's the dream. 🌅
           </div>
         </div>
       </div>
@@ -404,17 +564,25 @@
 
             <div class="polaroid" style="transform: rotate(2deg)">
               <div class="polaroid-photo">
-                <img src="/img/christmas.MOV" alt="Thoughtful you" />
+                <img src="/img/words2.PNG" alt="Thoughtful you" />
               </div>
               <div class="polaroid-caption">My sweet, thoughtful man</div>
             </div>
           </div>
 
+          <div
+            class="section-bottle"
+            data-message="I catch myself smiling at my phone when you text. My sisters probably think I'm crazy. I don't care. 😊💬"
+          >
+            📮
+          </div>
+
           <div class="sticky-note blue">
             It's the little things that make me fall deeper every day:
-            <br />• How you check on me <br />• The way you remember what I said
-            weeks ago <br />• Your good morning texts <br />• How you make me
-            laugh when I'm down <br />• The way you LISTEN - really listen
+            <br />• How you care for me <br />• The way you remember the
+            important details <br />• Always ready to help with whatver I bring
+            to you <br />• Getting me my favorite things <br />• The way you
+            LISTEN - really listen
           </div>
 
           <div
@@ -445,17 +613,24 @@
             style="max-width: 600px; margin: 40px auto"
           >
             There's nothing I love more than our quiet moments. Just you and me,
-            shutting out the world. Talking, laughing, being vulnerable, showing
-            each other love in every way. You make me feel safe. Cherished.
-            Completely yours.
+            shutting out the world. Talking, laying in bed, TikToks, laughing,
+            being vulnerable, showing each other love in every way. You make me
+            feel safe. Cherished. Completely yours.
             <br /><br />
-            Those are the moments I treasure most. When it's just us, no
-            distance, no screens - just our hearts beating as one. 💖
+            Those are the moments I treasure most. When it's just us, no screens
+            - just our hearts beating as one. 💖
+          </div>
+
+          <div
+            class="section-bottle"
+            data-message="One day I'll get to fall asleep next to you without having to say goodnight through a screen. Can't wait for that day. 🌙✨"
+          >
+            📮
           </div>
 
           <div class="sticky-note green" style="transform: rotate(-2deg)">
-            Inside joke alert: [Add your funniest inside joke here - the one
-            that makes you both crack up!] 😂
+            Lord knows I miss the sound of your snoring 😪… it was kind of my
+            white noise. Haven’t had a good night’s sleep since you left! 💔
           </div>
         </div>
       </div>
@@ -473,7 +648,7 @@
 
         <div class="film-reel">
           <div class="film-frames-container">
-            <div class="film-frame" data-caption="Beach day vibes 🌊">
+            <div class="film-frame" data-caption="The Beachhhh 🌊">
               <img src="/img/beach.JPG" alt="Beach memory" />
             </div>
 
@@ -497,7 +672,10 @@
               </video>
             </div>
 
-            <div class="film-frame" data-caption="Always together 🌟">
+            <div
+              class="film-frame"
+              data-caption="little miss passenger princess and her driver 🥰✨"
+            >
               <video autoplay loop muted playsinline>
                 <source src="/img/driving together.MOV" type="video/mp4" />
               </video>
@@ -509,28 +687,33 @@
               </video>
             </div>
 
-            <div class="film-frame" data-caption="Forever and always">
+            <div class="film-frame" data-caption="Our place">
               <video autoplay loop muted playsinline>
                 <source src="/img/lovee.MOV" type="video/mp4" />
               </video>
             </div>
-            <div class="film-frame" data-caption="Forever and always">
+            <div class="film-frame" data-caption="Wedding guests">
               <video autoplay loop muted playsinline>
                 <source src="/img/wedding vid.MOV" type="video/mp4" />
               </video>
             </div>
-            <div class="film-frame" data-caption="Forever and always">
+            <div class="film-frame" data-caption="Forever and always ♾️">
               <img src="/img/us.JPG" alt="Memory 4" />
             </div>
-            <div class="film-frame" data-caption="Forever and always">
+            <div class="film-frame" data-caption="My perfect man">
               <img src="/img/heart.JPG" alt="Memory 4" />
             </div>
-            <div class="film-frame" data-caption="Forever and always">
+            <div class="film-frame" data-caption="Comedy Night">
               <img src="/img/comedy.JPG" alt="Memory 4" />
             </div>
-            <div class="film-frame" data-caption="Forever and always">
+            <div class="film-frame" data-caption="Car rides 🚗">
               <video autoplay loop muted playsinline>
                 <source src="/img/passenger princess.MOV" type="video/mp4" />
+              </video>
+            </div>
+            <div class="film-frame" data-caption="Big spender 💵">
+              <video autoplay loop muted playsinline>
+                <source src="/img/big spender.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
@@ -572,9 +755,9 @@
             <div class="dream-icon">🚗</div>
             <h3>Real Drives</h3>
             <p>
-              Actually cruising together - your hand in mine, our playlist
-              blasting, going on adventures. No more virtual drives. The real
-              thing.
+              Real drives together—windows down, music loud, your hand in mine,
+              just us and the road ahead. No screens, no distance, just the real
+              thing. 💖
             </p>
           </div>
 
@@ -589,11 +772,11 @@
           </div>
 
           <div class="dream-card">
-            <div class="dream-icon">💍</div>
+            <div class="dream-icon">✨</div>
             <h3>Forever & Always</h3>
             <p>
-              Building the life we talk about. The home, the love, the family.
-              You and me, against the world, for the rest of our lives.
+              Building our life together—full of love, laughter, and adventures.
+              You and me, side by side, for all the days to come.
             </p>
           </div>
 
@@ -680,15 +863,14 @@
 
             <div class="signature">
               All my love, always,<br />
-              Adedolapo 💕
+              <span> Adedolapo 💕</span>
             </div>
 
             <div class="ps-note">
               P.S. - You know how you're always tapping your screen a million
-              times on TikTok? And how you love to doodle when we're on
-              FaceTime? I made sure this website has a little surprise for you -
-              tap anywhere and see what happens. It's just like your tapping
-              habit, but now it's ours. Every tap is a heart, just for you. 💕
+              times on TikTok? Well I made sure this website has a little
+              surprise for you. Every tap you make sends a heart from me to you.
+              💕
             </div>
           </div>
         </div>
