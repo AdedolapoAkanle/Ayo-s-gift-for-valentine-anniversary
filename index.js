@@ -196,7 +196,7 @@ sectionBottles.forEach((bottle) => {
       bottleAudio.src = audioSrc;
       bottleAudio.style.display = "block";
       bottleMessage.textContent =
-        "💕 I recorded something special for you... Press play 🎙️";
+        "Random spot maybe but who cares lol🙃... Press play 🎙️";
     } else {
       bottleAudio.style.display = "none";
     }
