@@ -235,9 +235,32 @@ closeBottle.addEventListener("click", () => {
   }
 });
 
-// Close on overlay click
 bottleOverlay.addEventListener("click", (e) => {
   if (e.target === bottleOverlay) {
     closeBottle.click();
   }
+});
+
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+window.scrollTo(0, 0);
+
+document.addEventListener("DOMContentLoaded", function () {
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+});
+
+window.addEventListener("load", function () {
+  setTimeout(function () {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, 0);
+});
+
+window.addEventListener("beforeunload", function () {
+  window.scrollTo(0, 0);
 });
